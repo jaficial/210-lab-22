@@ -156,9 +156,12 @@ public:
             delete head;
             current->prev = nullptr;
             head = current;
+            return;
         }
-        
-        else 
+        for (int i = 0; i < position; i++){
+
+
+        } 
     }
     ~DoublyLinkedList() {
         while (head) {
@@ -169,7 +172,7 @@ public:
     }
 };
 
-// Driver program
+// Driver program //
 int main() {
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
