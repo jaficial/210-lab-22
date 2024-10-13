@@ -146,7 +146,7 @@ public:
     }
     
     // deleting a node by its position:
-    void delete_pos(Node *node_val){
+    void delete_pos(Node *node_val){ // receives pointer to the node to delete
         if (node_val->prev == nullptr){ // if node_val is the head
             Node *temp = node_val->next; // temp is assigned the node after node_val
             delete node_val;
@@ -159,9 +159,9 @@ public:
             tail = temp;
         }
 
-        else{ // NOTE: going to need a temp for the prev and the next node
-            Node *temp_pr = node_val->prev; // points to previous node
-            Node *temp_nx = node_val->next; // points to next node 
+        else{ // NOTE: Need temps for prev and next node, then assign the previous node's "next" to the next node
+            Node *temp_pr = node_val->prev; // points to the previous node
+            Node *temp_nx = node_val->next; // points to the next node
             
 
         }
