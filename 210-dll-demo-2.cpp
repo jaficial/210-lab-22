@@ -148,6 +148,7 @@ public:
     // deleting a node by its position:
     // MIGHT NEED TO ADD A CURRENT NODE TO TRAVERSE THE LINKED LIST
     // HAVE FUNCTION TAKE IN INT INSTEAD OF NODE POINTER
+    // NOT WORKING YET, IT ISN'T DELETING THE NODE
     void delete_pos(int position){ // receives int to reference the node
         Node *current = head; // current will be used to traverse the linked list
         
@@ -159,7 +160,7 @@ public:
             return;
         }
 	
-	
+	// TRY USING THE HEAD TO TRAVERSE WHEN GETTING BACK 
         for (int i = 0; i < position; i++){ // NOTE: need to traverse the linked list, use current
 		if (current->next == nullptr){ // for deleting the tail node
 			Node* temp = current->prev;
@@ -208,7 +209,8 @@ int main() {
     list.print();
 
     cout << "Now to test the delete_pos function: \n";
-
+    list.delete_pos(3);
+    list.print();
 
 
     
