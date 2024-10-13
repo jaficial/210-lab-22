@@ -42,7 +42,7 @@ public:
             tail = newNode;
         }
     }
-//
+
     void push_front(int value) {
         Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
@@ -158,10 +158,15 @@ public:
             head = current;
             return;
         }
-        for (int i = 0; i < position; i++){
-
-
-        } 
+        for (int i = 0; i < position; i++){ // NOTE: need to traverse the linked list, use current
+		if (current->prev == nullptr){ // if first node is the head
+			current = head->next;
+			current->prev = head;
+		}
+		else{
+			// come back to here after break
+		}
+	} 
     }
     ~DoublyLinkedList() {
         while (head) {
