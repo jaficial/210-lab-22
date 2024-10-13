@@ -146,25 +146,19 @@ public:
     }
     
     // deleting a node by its position:
-    void delete_pos(Node *node_val){ // receives pointer to the node to delete
-        if (node_val->prev == nullptr){ // if node_val is the head
-            Node *temp = node_val->next; // temp is assigned the node after node_val
-            delete node_val;
-            head = temp;
-        } 
-
-        else if (node_val->next == nullptr){ // if node_val is the tail 
-            Node *temp = node_val->prev;
-            delete node_val;
-            tail = temp;
+    // MIGHT NEED TO ADD A CURRENT NODE TO TRAVERSE THE LINKED LIST
+    // HAVE FUNCTION TAKE IN INT INSTEAD OF NODE POINTER
+    void delete_pos(int position){ // receives int to reference the node
+        Node *current = head; // current will be used to traverse the linked list
+        
+        if (position == 0){ // if position is the head node
+            current = head->next;
+            delete head;
+            current->prev = nullptr;
+            head = current;
         }
-
-        else{ // NOTE: Need temps for prev and next node, then assign the previous node's "next" to the next node
-            Node *temp_pr = node_val->prev; // points to the previous node
-            Node *temp_nx = node_val->next; // points to the next node
-            
-
-        }
+        
+        else 
     }
     ~DoublyLinkedList() {
         while (head) {
@@ -192,6 +186,7 @@ int main() {
     cout << "Now will pop the tail: \n";
     list.pop_back();
     list.print();
+
 
     
     
