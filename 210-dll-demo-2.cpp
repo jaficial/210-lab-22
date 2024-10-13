@@ -27,6 +27,7 @@ private:
 //
     Node* head;
     Node* tail;
+    Node* position;
 
 public:
     // constructor
@@ -149,37 +150,37 @@ public:
     // MIGHT NEED TO ADD A CURRENT NODE TO TRAVERSE THE LINKED LIST
     // HAVE FUNCTION TAKE IN INT INSTEAD OF NODE POINTER
     // NOT WORKING YET, IT ISN'T DELETING THE NODE
-    void delete_pos(int position){ // receives int to reference the node
-        Node *current = head; // current will be used to traverse the linked list
+    void delete_pos(int pos){ // receives int to reference the node
+        position = head; // head will be used to traverse the list
         
         if (position == 0){ // if position is the head node, head node gets deleted
-            current = head->next;
+            position = head->next;
             delete head;
-            current->prev = nullptr;
-            head = current;
+            position->prev = nullptr;
+            head = position;
             return;
         }
 	
 	// TRY USING THE HEAD TO TRAVERSE WHEN GETTING BACK 
-        for (int i = 0; i < position; i++){ // NOTE: need to traverse the linked list, use current
-		if (current->next == nullptr){ // for deleting the tail node
-			Node* temp = current->prev;
-			delete current;
-			current = temp;
-			current->next = nullptr;
-		}
+        for (int i = 0; i < pos; i++){ // NOTE: need to traverse the linked list, use current
+		    if (position->next == nullptr){ // for deleting the tail node
+			    Node* temp = position->prev;
+			    delete position;
+			    position = temp;
+			    position->next = nullptr;
+		    }
 
-		else if (i == position){ // going to be the function that deletes the node. COME BACK HERE
-	 		Node* temp_pr = current->prev;
-			Node* temp_nx = current->next;
-			delete current;
-			current = temp_pr;
-			current = temp_nx;
+		    else if (i == pos){ // going to be the function that deletes the node. COME BACK HERE
+	 		    Node* temp_pr = position->prev;
+			    Node* temp_nx = position->next;
+			    delete position;
+			    position = temp_pr;
+			    position = temp_nx;
 		}
-		else { // for traversing 
-			current = current->next;
-		}
-	} 
+		    else { // for traversing 
+			    position = position->next;
+		    }
+	    } 
     }
     ~DoublyLinkedList() {
         while (head) {
