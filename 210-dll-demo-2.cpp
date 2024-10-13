@@ -27,7 +27,6 @@ private:
 
     Node* head;
     Node* tail;
-    Node* position;
 
 public:
     // constructor
@@ -151,7 +150,7 @@ public:
     // HAVE FUNCTION TAKE IN INT INSTEAD OF NODE POINTER
     // NOT WORKING YET, IT ISN'T DELETING THE NODE
     void delete_pos(int pos){ // receives int to reference the node
-        position = head; // position will be used to traverse the list
+        Node* position = head; // position will be used to traverse the list
         
         if (position == 0){ // if position is the head node, head node gets deleted
             position = head->next;
