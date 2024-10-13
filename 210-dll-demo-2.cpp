@@ -24,7 +24,7 @@ private:
             next = n;
         }
     };
-//
+
     Node* head;
     Node* tail;
     Node* position;
@@ -151,7 +151,7 @@ public:
     // HAVE FUNCTION TAKE IN INT INSTEAD OF NODE POINTER
     // NOT WORKING YET, IT ISN'T DELETING THE NODE
     void delete_pos(int pos){ // receives int to reference the node
-        position = head; // head will be used to traverse the list
+        position = head; // position will be used to traverse the list
         
         if (position == 0){ // if position is the head node, head node gets deleted
             position = head->next;
@@ -210,7 +210,7 @@ int main() {
     list.print();
 
     cout << "Now to test the delete_pos function: \n";
-    list.delete_pos(3);
+    list.delete_pos(0);
     list.print();
 
 
