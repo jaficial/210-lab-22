@@ -179,7 +179,7 @@ public:
 			    current = temp_pr;
 			    current = temp_nx;
 		}
-		    else { // for traversing 
+		    else { // for traversing, use temp_pr and temp_nx to traverse. Come back here when back home.
 			    
 		    }
 	    } 
