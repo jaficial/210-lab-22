@@ -154,9 +154,17 @@ public:
         } 
 
         else if (node_val->next == nullptr){ // if node_val is the tail 
-            
+            Node *temp = node_val->prev;
+            delete node_val;
+            tail = temp;
         }
 
+        else{ // NOTE: going to need a temp for the prev and the next node
+            Node *temp_pr = node_val->prev; // points to previous node
+            Node *temp_nx = node_val->next; // points to next node 
+            
+
+        }
     }
     ~DoublyLinkedList() {
         while (head) {
