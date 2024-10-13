@@ -164,7 +164,7 @@ public:
 			current->prev = head;
 		}
 		else{
-			// come back to here after break
+			// come back to here after break //
 		}
 	} 
     }
