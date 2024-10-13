@@ -161,11 +161,22 @@ public:
 	
 	
         for (int i = 0; i < position; i++){ // NOTE: need to traverse the linked list, use current
-		if (i == position){ // going to be the function that deletes the node. COME BACK HERE
-	 
+		if (current->next == nullptr){ // for deleting the tail node
+			Node* temp = current->prev;
+			delete current;
+			current = temp;
+			current->next = nullptr;
 		}
-		else {
-			//
+
+		else if (i == position){ // going to be the function that deletes the node. COME BACK HERE
+	 		Node* temp_pr = current->prev;
+			Node* temp_nx = current->next;
+			delete current;
+			current = temp_pr;
+			current = temp_nx;
+		}
+		else { // for traversing 
+			current = current->next;
 		}
 	} 
     }
@@ -195,6 +206,9 @@ int main() {
     cout << "Now will pop the tail: \n";
     list.pop_back();
     list.print();
+
+    cout << "Now to test the delete_pos function: \n";
+
 
 
     
