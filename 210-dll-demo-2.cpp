@@ -151,20 +151,21 @@ public:
     void delete_pos(int position){ // receives int to reference the node
         Node *current = head; // current will be used to traverse the linked list
         
-        if (position == 0){ // if position is the head node
+        if (position == 0){ // if position is the head node, head node gets deleted
             current = head->next;
             delete head;
             current->prev = nullptr;
             head = current;
             return;
         }
+	
+	
         for (int i = 0; i < position; i++){ // NOTE: need to traverse the linked list, use current
-		if (current->prev == nullptr){ // if first node is the head
-			current = head->next;
-			current->prev = head;
+		if (i == position){ // going to be the function that deletes the node. COME BACK HERE
+	 
 		}
-		else{
-			// come back to here after break //
+		else {
+			//
 		}
 	} 
     }
