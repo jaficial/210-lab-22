@@ -85,7 +85,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -129,7 +129,21 @@ public:
         cout << endl;
     }
 
-    //
+    // WORKS: pops head nodes
+    void pop_front(){
+        Node *temp = head->next;
+        temp->prev = nullptr;
+        delete head;
+        head = temp;
+    }
+
+    // WORKS: pops tail nodes
+    void pop_back(){
+        Node *temp = tail->prev;
+        temp->next = nullptr;
+        delete tail;
+        tail = temp;
+    }
     
     ~DoublyLinkedList() {
         while (head) {
@@ -147,16 +161,29 @@ int main() {
 
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
-    cout << "List forward: ";
+
+    cout << "Before popping head: \n";    
+    list.print();
+    list.pop_front();
+    cout << "After popping head: \n";
     list.print();
 
-    cout << "List backward: ";
-    list.print_reverse();
-
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
+    cout << "Now will pop the tail: \n";
+    list.pop_back();
     list.print();
+
+    
+    
+    // cout << "List forward: ";
+    // list.print();
+
+    // cout << "List backward: ";
+    // list.print_reverse();
+
+    // cout << "Deleting list, then trying to print.\n";
+    // list.~DoublyLinkedList();
+    // cout << "List forward: ";
+    // list.print();
 
     return 0;
 }
