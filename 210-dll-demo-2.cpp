@@ -42,7 +42,7 @@ public:
             tail = newNode;
         }
     }
-
+//
     void push_front(int value) {
         Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
