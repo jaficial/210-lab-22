@@ -145,6 +145,11 @@ public:
         tail = temp;
     }
     
+    // value is placeholder for right now
+    void delete_pos(int value){
+        Node *temp; 
+
+    }
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
