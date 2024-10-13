@@ -130,7 +130,7 @@ public:
     }
 
     //
-    /
+    
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
@@ -139,7 +139,7 @@ public:
         }
     }
 };
-ss
+
 // Driver program
 int main() {
     DoublyLinkedList list;
