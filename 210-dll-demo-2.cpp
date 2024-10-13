@@ -145,9 +145,17 @@ public:
         tail = temp;
     }
     
-    // value is placeholder for right now
-    void delete_pos(int value){
-        Node *temp; 
+    // deleting a node by its position:
+    void delete_pos(Node *node_val){
+        if (node_val->prev == nullptr){ // if node_val is the head
+            Node *temp = node_val->next; // temp is assigned the node after node_val
+            delete node_val;
+            head = temp;
+        } 
+
+        else if (node_val->next == nullptr){ // if node_val is the tail 
+            
+        }
 
     }
     ~DoublyLinkedList() {
