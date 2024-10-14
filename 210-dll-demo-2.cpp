@@ -164,7 +164,7 @@ public:
 	
 	// TRY USING THE HEAD TO TRAVERSE WHEN GETTING BACK 
         for (int i = 0; i <= pos; i++){ // NOTE: need to traverse the linked list, use current
-		    if (current->next == nullptr){ // for deleting the tail node
+		    if (current->next == nullptr){ // WORKS NOW!: for deleting the tail node
 			    Node *temp = current->prev; // contains previous node before tail
                 temp->next = nullptr;
                 delete tail;
@@ -172,14 +172,21 @@ public:
                 return;
             }
 
-		    else if (i == pos){ // going to be the function that deletes the node. COME BACK HERE
-	 		   
-		    }
-		    else { // for traversing, use temp_pr and temp_nx to traverse. Come back here when back home.
+		    else if (i == pos){ // going to be the function that deletes the node.
+                Node *temp_pr = current->prev;
                 Node *temp_nx = current->next;
-                Node *temp_pr = current;
-                current = temp_nx;
+                head = current;
                 current->prev = temp_pr;
+                current->next = temp_nx;
+                delete head;
+                head = current;
+                return;
+		    }
+
+		    else { // WORKING: Loop is traversing the list
+                Node *temp_pr = current; //  temp node holds current as the previous node
+                current = current->next; // current is assigned the next node 
+                current->prev = temp_pr; // current->prev is assigned the original current (which is now the previous one)
 		    }
 	    } 
     }
@@ -212,7 +219,7 @@ int main() {
 
     cout << "Now to test the delete_pos function: \n";
     
-    list.delete_pos(7);
+    list.delete_pos(3);
     list.print();
 
 
