@@ -163,12 +163,12 @@ public:
 	// TRY USING THE HEAD TO TRAVERSE WHEN GETTING BACK 
         for (int i = 0; i <= pos; i++){ // NOTE: need to traverse the linked list, use current
 		    if (current->next == nullptr){ // for deleting the tail node
-			    temp = current->prev;
+			    Node *temp = tail->prev;
+                temp->next = nullptr;
 			    delete tail;
 			    tail = temp;
-			    tail->next = nullptr;
                 return;
-		    }
+		    }//
 
 		    else if (i == pos){ // going to be the function that deletes the node. COME BACK HERE
 	 		    Node* temp_pr = current->prev;
