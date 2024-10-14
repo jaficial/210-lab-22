@@ -205,41 +205,46 @@ public:
 
 // Driver program //
 int main() {
+    srand(time(0));
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
+    int tail_index = size - 1;
     cout << "The size of the array will be: " << size << " elements long\n\n";
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
 
     cout << "This is the linked list before popping the head: \n";    
     list.print();
+    cout << endl;
 
     list.pop_front();
     cout << "This is the linked list after popping the head: \n";
     list.print();
+    cout << endl;
+    tail_index--;
 
-    cout << "This will: \n";
+    cout << "This will now be the linked list after popping the tail: \n";
     list.pop_back();
     list.print();
+    cout << endl;
+    tail_index--;
 
-    cout << "Now to test the delete_pos function: \n";
-    
+    int pos = 3;
+    cout << "To test the \"delete_pos()\" function, the element in the 3rd index will be deleted \n";
     list.delete_pos(3);
     list.print();
+    cout << endl;
+    tail_index--;
 
+    cout << "Now the head of the list will be deleted using the \"delete_pos()\" function \n";
+    list.delete_pos(0);
+    list.print();
+    cout << endl;
+    tail_index--;
 
-    
-    
-    // cout << "List forward: ";
-    // list.print();
+    cout << "Now the head of the list will be deleted using the \"delete_pos()\" function \n";
+    cout << "This is the tail_index: " << tail_index << endl;
 
-    // cout << "List backward: ";
-    // list.print_reverse();
-
-    // cout << "Deleting list, then trying to print.\n";
-    // list.~DoublyLinkedList();
-    // cout << "List forward: ";
-    // list.print();
-
+    list.~DoublyLinkedList();
     return 0;
 }
