@@ -1,4 +1,8 @@
+// COMSC-210 | Lab 22 | Jed Aficial
+// github link: https://github.com/jaficial/210-lab-22
+
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -112,6 +116,7 @@ public:
     void print() {
         Node* current = head;
         if (!current) return;
+        cout << setw(4) << "";
         while (current) {
             cout << current->data << " ";
             current = current->next;
@@ -173,13 +178,12 @@ public:
             }
 
 		    else if (i == pos){ // going to be the function that deletes the node.
-                Node *temp_pr = current->prev;
                 Node *temp_nx = current->next;
                 head = current;
-                current->prev = temp_pr;
+                current = current->prev;
                 current->next = temp_nx;
                 delete head;
-                head = current;
+                head = temp_head;
                 return;
 		    }
 
@@ -202,18 +206,19 @@ public:
 // Driver program //
 int main() {
     DoublyLinkedList list;
-    //int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
-    int size = 10;
+    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
+    cout << "The size of the array will be: " << size << " elements long\n\n";
     for (int i = 0; i < size; ++i)
         list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
 
-    cout << "Before popping head: \n";    
-    list.print();
-    list.pop_front();
-    cout << "After popping head: \n";
+    cout << "This is the linked list before popping the head: \n";    
     list.print();
 
-    cout << "Now will pop the tail: \n";
+    list.pop_front();
+    cout << "This is the linked list after popping the head: \n";
+    list.print();
+
+    cout << "This will: \n";
     list.pop_back();
     list.print();
 
